@@ -1,0 +1,32 @@
+[
+  {
+    "codigo": "P001",
+    "nome": "Caderno 10 materias",
+    "preco": 24.9,
+    "quantidade": 40
+  },
+  {
+    "codigo": "P002",
+    "nome": "Caneta azul",
+    "preco": 2.5,
+    "quantidade": 300
+  },
+  {
+    "codigo": "P003",
+    "nome": "Mochila escolar",
+    "preco": 149.0,
+    "quantidade": 12
+  },
+  {
+    "codigo": "P004",
+    "nome": "Calculadora cientifica",
+    "preco": 89.9,
+    "quantidade": 8
+  },
+  {
+    "codigo": "P005",
+    "nome": "Marca-texto amarelo",
+    "preco": 4.75,
+    "quantidade": 120
+  }
+]

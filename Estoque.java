@@ -1,4 +1,5 @@
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,18 +22,28 @@ public class Estoque {
     }
 
     public void salvar (List<Produto> produtos, Path arquivo, Formato formato) throws IOException { 
-        formato.serializar(this.produtos);
+        String conteudo = formato.serializar(produtos);
+
+        Files.writeString(arquivo, conteudo);
     }
 
-    public List<Produto> carregar (Path arquivo, Formato formato) throws IOException {
-        return null;
+    public List<Produto> carregar (Path arquivo, Formato formato) throws IOException, ArquivoInvalidoException {
+        if (arquivo.toString().endsWith(".csv") || arquivo.toString().endsWith(".json")) {
+            String conteudo = Files.readString(arquivo);
+
+            return formato.desserializar(conteudo);
+        }
+
+        throw new IOException("Formato de arquivo não suportado");
     }
 
-    public double valorToral(List<Produto> produtos) {
+    public double valorTotal() {
         double total = 0;
-        for (Produto p: this.produtos) {
+
+        for (Produto p : produtos) {
             total += p.valorEmEstoque();
         }
+
         return total;
     }
 }
